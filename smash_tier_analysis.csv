@@ -1,0 +1,87 @@
+character,my_tier,my_rank_in_tier,my_overall_rank,official_tier,official_rank_in_tier,official_overall_rank,tier_delta,archetype,weight_class,mobility,has_gimmick_mechanic,franchise,franchise_genre,party,smash_debut,is_dlc,is_echo,projectile_user,disjoint_user
+Mewtwo,S+,1,1,D+,2,75,74,Zoner,Lightweight,Fast,True,Pokemon,RPG,First-party,Melee,False,False,True,True
+Pyra/Mythra,S+,2,2,S-,2,9,7,Swordie,Middleweight,Fast,True,Xenoblade,JRPG,First-party,Ultimate,True,False,False,True
+Hero,S,1,3,A,2,23,20,Zoner,Middleweight,Average,True,Dragon Quest,JRPG,Third-party,Ultimate,True,False,True,True
+Ike,S,2,4,D-,3,79,75,Swordie,Heavyweight,Slow,False,Fire Emblem,Strategy RPG,First-party,Brawl,False,False,False,True
+Sora,S,3,5,A,8,29,24,Swordie,Lightweight,Average,True,Kingdom Hearts,Action RPG,Third-party,Ultimate,True,False,True,True
+Corrin,S,4,6,A-,1,32,26,Swordie,Middleweight,Average,True,Fire Emblem,Strategy RPG,First-party,Smash 4,True,False,False,True
+Shulk,A,1,7,A-,3,34,27,Swordie,Middleweight,Average,True,Xenoblade,JRPG,First-party,Smash 4,False,False,False,True
+Falco,A,2,8,A-,2,33,25,Rushdown,Lightweight,Fast,False,Star Fox,Shooter,First-party,Melee,False,False,True,False
+Sephiroth,A,3,9,B-,7,56,47,Swordie,Lightweight,Average,True,Final Fantasy,JRPG,Third-party,Ultimate,True,False,True,True
+Lucina,A,4,10,B+,3,39,29,Swordie,Middleweight,Average,False,Fire Emblem,Strategy RPG,First-party,Ultimate,False,True,False,True
+Ness,A,5,11,B-,3,52,41,All-rounder,Middleweight,Slow,True,EarthBound,RPG,First-party,Smash 64,False,False,True,False
+Samus,A,6,12,A+,1,16,4,Zoner,Middleweight,Slow,True,Metroid,Action-adventure,First-party,Smash 64,False,False,True,False
+Dark Samus,A,7,13,A+,2,17,4,Zoner,Middleweight,Slow,True,Metroid,Action-adventure,First-party,Ultimate,False,True,True,False
+Kirby,A,8,14,C-,9,72,58,Rushdown,Lightweight,Slow,True,Kirby,Platformer,First-party,Smash 64,False,False,False,False
+Incineroar,A,9,15,C-,8,71,56,Grappler,Heavyweight,Slow,True,Pokemon,RPG,First-party,Ultimate,False,False,False,False
+King K. Rool,A,10,16,D-,4,80,64,Heavy Bruiser,Super Heavyweight,Slow,True,Donkey Kong,Platformer,First-party,Ultimate,False,False,True,False
+Mii Brawler,A,11,17,A,6,27,10,Rushdown,Middleweight,Fast,True,Mii,Avatar,First-party,Smash 4,False,False,True,False
+Link,A,12,18,C-,6,69,51,Zoner,Middleweight,Slow,True,The Legend of Zelda,Action-adventure,First-party,Smash 64,False,False,True,True
+Toon Link,A,13,19,B+,7,43,24,Zoner,Lightweight,Average,True,The Legend of Zelda,Action-adventure,First-party,Brawl,False,False,True,True
+Young Link,A,14,20,B+,8,44,24,Zoner,Lightweight,Fast,True,The Legend of Zelda,Action-adventure,First-party,Melee,False,False,True,True
+Palutena,A,15,21,A+,3,18,-3,All-rounder,Middleweight,Fast,False,Kid Icarus,Action,First-party,Smash 4,False,False,True,True
+Byleth,A,16,22,B-,5,54,32,Swordie,Middleweight,Slow,False,Fire Emblem,Strategy RPG,First-party,Ultimate,True,False,True,True
+Ganondorf,A,17,23,E,4,86,63,Heavy Bruiser,Super Heavyweight,Slow,False,The Legend of Zelda,Action-adventure,First-party,Melee,False,False,False,True
+Cloud,A,18,24,A,9,30,6,Swordie,Middleweight,Fast,True,Final Fantasy,JRPG,Third-party,Smash 4,True,False,True,True
+Joker,A,19,25,S-,8,15,-10,Rushdown,Lightweight,Very Fast,True,Persona,JRPG,Third-party,Ultimate,True,False,True,False
+Mii Swordfighter,A,20,26,D+,1,74,48,Swordie,Middleweight,Average,True,Mii,Avatar,First-party,Smash 4,False,False,True,True
+Zero Suit Samus,A,21,27,B+,5,41,14,Rushdown,Lightweight,Very Fast,False,Metroid,Action-adventure,First-party,Brawl,False,False,True,False
+Ridley,B,1,28,C+,6,63,35,Heavy Bruiser,Heavyweight,Average,False,Metroid,Action-adventure,First-party,Ultimate,False,False,True,True
+Pokemon Trainer,B,2,29,B+,2,38,9,All-rounder,Middleweight,Average,True,Pokemon,RPG,First-party,Brawl,False,False,True,False
+Lucario,B,3,30,C-,3,66,36,All-rounder,Middleweight,Average,True,Pokemon,RPG,First-party,Brawl,False,False,True,False
+Dark Pit,B,4,31,B+,10,46,15,All-rounder,Middleweight,Average,False,Kid Icarus,Action,First-party,Smash 4,False,True,True,True
+Pit,B,5,32,B+,9,45,13,All-rounder,Middleweight,Average,False,Kid Icarus,Action,First-party,Brawl,False,False,True,True
+Bowser,B,6,33,C-,7,70,37,Grappler,Super Heavyweight,Average,True,Super Mario,Platformer,First-party,Melee,False,False,True,False
+Donkey Kong,B,7,34,B+,13,49,15,Grappler,Heavyweight,Average,False,Donkey Kong,Platformer,First-party,Smash 64,False,False,False,False
+Richter,B,8,35,E,2,84,49,Zoner,Heavyweight,Slow,False,Castlevania,Action-platformer,Third-party,Ultimate,False,True,True,True
+Simon,B,9,36,E,1,83,47,Zoner,Heavyweight,Slow,False,Castlevania,Action-platformer,Third-party,Ultimate,False,False,True,True
+Mii Gunner,B,10,37,C+,2,59,22,Zoner,Middleweight,Slow,True,Mii,Avatar,First-party,Smash 4,False,False,True,False
+Lucas,B,11,38,C+,3,60,22,All-rounder,Middleweight,Average,True,EarthBound,RPG,First-party,Brawl,False,False,True,False
+Zelda,B,12,39,D+,3,76,37,Zoner,Lightweight,Slow,True,The Legend of Zelda,Action-adventure,First-party,Melee,False,False,True,False
+Piranha Plant,B,13,40,C-,10,73,33,Zoner,Middleweight,Slow,True,Super Mario,Platformer,First-party,Ultimate,True,False,True,True
+Luigi,B,14,41,S-,3,10,-31,Rushdown,Middleweight,Slow,False,Super Mario,Platformer,First-party,Smash 64,False,False,True,False
+Marth,B,15,42,D-,1,77,35,Swordie,Middleweight,Average,True,Fire Emblem,Strategy RPG,First-party,Melee,False,False,False,True
+Robin,B,16,43,C+,5,62,19,Zoner,Middleweight,Slow,True,Fire Emblem,Strategy RPG,First-party,Smash 4,False,False,True,True
+Terry,B,17,44,B+,1,37,-7,Rushdown,Middleweight,Average,True,Fatal Fury,Fighting,Third-party,Ultimate,True,False,True,False
+King Dedede,B,18,45,D-,5,81,36,Grappler,Super Heavyweight,Slow,True,Kirby,Platformer,First-party,Brawl,False,False,True,True
+Olimar,B,19,46,A+,5,20,-26,Setup/Trap,Lightweight,Slow,True,Pikmin,Strategy,First-party,Brawl,False,False,True,False
+Pichu,B,20,47,B-,1,50,3,Rushdown,Featherweight,Very Fast,True,Pokemon,RPG,First-party,Melee,False,False,True,False
+Pikachu,B,21,48,A+,4,19,-29,Rushdown,Lightweight,Very Fast,False,Pokemon,RPG,First-party,Smash 64,False,False,True,False
+Sheik,B,22,49,B-,4,53,4,Rushdown,Lightweight,Very Fast,False,The Legend of Zelda,Action-adventure,First-party,Melee,False,False,True,False
+Mario,B,23,50,A,4,25,-25,All-rounder,Middleweight,Average,False,Super Mario,Platformer,First-party,Smash 64,False,False,True,False
+Chrom,B,24,51,C-,5,68,17,Swordie,Middleweight,Fast,False,Fire Emblem,Strategy RPG,First-party,Ultimate,False,True,False,True
+Roy,B,25,52,A,1,22,-30,Swordie,Middleweight,Fast,True,Fire Emblem,Strategy RPG,First-party,Melee,False,False,False,True
+Wolf,B,26,53,A,5,26,-27,All-rounder,Middleweight,Average,False,Star Fox,Shooter,First-party,Brawl,False,False,True,True
+Kazuya,C,1,54,S+,7,7,-47,Rushdown,Heavyweight,Slow,True,Tekken,Fighting,Third-party,Ultimate,True,False,True,False
+Ken,C,2,55,B+,4,40,-15,Rushdown,Middleweight,Average,True,Street Fighter,Fighting,Third-party,Ultimate,False,True,True,False
+Ryu,C,3,56,A,10,31,-25,Rushdown,Middleweight,Slow,True,Street Fighter,Fighting,Third-party,Smash 4,True,False,True,False
+R.O.B.,C,4,57,S+,5,5,-52,Zoner,Heavyweight,Average,True,R.O.B.,Accessory,First-party,Brawl,False,False,True,False
+Wario,C,5,58,A+,6,21,-37,Rushdown,Heavyweight,Average,True,Wario,Platformer,First-party,Brawl,False,False,True,False
+Captain Falcon,C,6,59,A-,4,35,-24,Rushdown,Middleweight,Very Fast,False,F-Zero,Racing,First-party,Smash 64,False,False,False,False
+Meta Knight,C,7,60,B-,6,55,-5,Rushdown,Lightweight,Fast,False,Kirby,Platformer,First-party,Brawl,False,False,False,True
+Inkling,C,8,61,B-,2,51,-10,Rushdown,Middleweight,Fast,True,Splatoon,Shooter,First-party,Ultimate,False,False,True,False
+Banjo & Kazooie,C,9,62,C-,1,64,2,All-rounder,Middleweight,Average,True,Banjo-Kazooie,Platformer,Third-party,Ultimate,True,False,True,False
+Bowser Jr.,C,10,63,C-,2,65,2,Setup/Trap,Middleweight,Average,True,Super Mario,Platformer,First-party,Smash 4,False,False,True,False
+Rosalina & Luma,C,11,64,B+,11,47,-17,Setup/Trap,Lightweight,Average,True,Super Mario,Platformer,First-party,Smash 4,False,False,True,False
+Little Mac,C,12,65,E,3,85,20,Rushdown,Middleweight,Very Fast,True,Punch-Out!!,Sports/Fighting,First-party,Smash 4,False,False,False,False
+Yoshi,C,13,66,S-,6,13,-53,All-rounder,Middleweight,Fast,True,Yoshi,Platformer,First-party,Smash 64,False,False,True,False
+Bayonetta,C,14,67,A,3,24,-43,Rushdown,Lightweight,Average,True,Bayonetta,Action,First-party,Smash 4,True,False,True,False
+Villager,C,15,68,D-,6,82,14,Setup/Trap,Middleweight,Average,True,Animal Crossing,Life Sim,First-party,Smash 4,False,False,True,False
+Isabelle,C,16,69,C+,1,58,-11,Setup/Trap,Lightweight,Slow,True,Animal Crossing,Life Sim,First-party,Ultimate,False,False,True,False
+Greninja,D,1,70,A-,5,36,-34,Rushdown,Middleweight,Fast,False,Pokemon,RPG,First-party,Smash 4,False,False,True,True
+Mr. Game & Watch,D,2,71,S+,4,4,-67,Setup/Trap,Lightweight,Average,True,Game & Watch,Arcade,First-party,Melee,False,False,True,False
+Snake,D,3,72,S+,3,3,-69,Setup/Trap,Heavyweight,Slow,True,Metal Gear,Stealth Action,Third-party,Brawl,False,False,True,False
+Dr. Mario,D,4,73,D-,2,78,5,All-rounder,Middleweight,Slow,False,Super Mario,Puzzle,First-party,Melee,False,False,True,False
+Wii Fit Trainer,D,5,74,C+,4,61,-13,Zoner,Middleweight,Average,True,Wii Fit,Fitness Sim,First-party,Smash 4,False,False,True,False
+Diddy Kong,D,6,75,S-,1,8,-67,Setup/Trap,Lightweight,Fast,True,Donkey Kong,Platformer,First-party,Brawl,False,False,True,False
+Fox,D,7,76,S-,7,14,-62,Rushdown,Lightweight,Very Fast,False,Star Fox,Shooter,First-party,Smash 64,False,False,True,False
+Mega Man,D,8,77,A,7,28,-49,Zoner,Middleweight,Average,True,Mega Man,Platformer,Third-party,Smash 4,False,False,True,False
+Steve,D,9,78,S+,1,1,-77,Setup/Trap,Middleweight,Slow,True,Minecraft,Sandbox Survival,Third-party,Ultimate,True,False,True,False
+Min Min,D,10,79,S+,6,6,-73,Zoner,Middleweight,Average,True,ARMS,Fighting,First-party,Ultimate,True,False,False,True
+Ice Climbers,F,1,80,B+,12,48,-32,Setup/Trap,Lightweight,Slow,True,Ice Climber,Platformer,First-party,Melee,False,False,True,True
+Daisy,F,2,81,S-,5,12,-69,Setup/Trap,Lightweight,Average,True,Super Mario,Platformer,First-party,Ultimate,False,True,True,False
+Peach,F,3,82,S-,4,11,-71,Setup/Trap,Lightweight,Average,True,Super Mario,Platformer,First-party,Melee,False,False,True,False
+Duck Hunt,F,4,83,B-,8,57,-26,Setup/Trap,Lightweight,Average,True,Duck Hunt,Light Gun Shooter,First-party,Smash 4,False,False,True,False
+Pac-Man,F,5,84,B+,6,42,-42,Setup/Trap,Middleweight,Average,True,Pac-Man,Arcade,Third-party,Smash 4,False,False,True,False
+Jigglypuff,F,6,85,C-,4,67,-18,Aerial,Featherweight,Slow,False,Pokemon,RPG,First-party,Smash 64,False,False,False,False
+Sonic,F,7,86,S+,2,2,-84,Rushdown,Middleweight,Very Fast,False,Sonic the Hedgehog,Platformer,Third-party,Brawl,False,False,True,False
