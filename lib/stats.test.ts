@@ -13,6 +13,11 @@ import {
   quantileSorted,
   spearman,
   spearmanOf,
+  stdDev,
+  silvermanBandwidth,
+  kernelDensity,
+  histogram,
+  shareWithin,
 } from "./stats.ts";
 
 const roster = parseFighters(
@@ -239,4 +244,45 @@ test("JRPG and Strategy RPG fold into RPG; Action RPG does not", async () => {
       "Xenoblade",
     ]
   );
+});
+
+test("standard deviation and Silverman bandwidth", () => {
+  assert.equal(stdDev([2, 4, 4, 4, 5, 5, 7, 9]).toFixed(4), "2.1381");
+  assert.equal(stdDev([5]), 0);
+  assert.ok(silvermanBandwidth(roster.map((f) => f.tierDelta)) > 0);
+});
+
+test("kernel density integrates to about 1 over a wide range", () => {
+  const values = roster.map((f) => f.tierDelta);
+  const from = -160;
+  const to = 160;
+  const steps = 800;
+  const pts = kernelDensity(values, from, to, steps);
+  const dx = (to - from) / steps;
+  // Trapezoid rule over the sampled grid.
+  let area = 0;
+  for (let i = 1; i < pts.length; i++) area += ((pts[i].y + pts[i - 1].y) / 2) * dx;
+  assert.ok(Math.abs(area - 1) < 0.01, `area was ${area}`);
+  assert.ok(pts.every((p) => p.y >= 0));
+});
+
+test("histogram bins every value exactly once", () => {
+  const values = roster.map((f) => f.tierDelta);
+  const bins = histogram(values, -90, 90, 10);
+  assert.equal(
+    bins.reduce((s, b) => s + b.n, 0),
+    values.length
+  );
+});
+
+test("tier delta is near normal in the middle and light in the tails", () => {
+  const values = roster.map((f) => f.tierDelta);
+  assert.equal(Math.abs(mean(values)) < 1e-12, true);
+  assert.equal(stdDev(values).toFixed(2), "38.86");
+
+  // Matches the normal 68 percent almost exactly.
+  assert.equal((shareWithin(values, 1) * 100).toFixed(1), "68.6");
+  // But the tails are lighter, because a delta cannot exceed the roster size.
+  assert.ok(shareWithin(values, 2) > 0.97);
+  assert.equal(shareWithin(values, 3), 1);
 });

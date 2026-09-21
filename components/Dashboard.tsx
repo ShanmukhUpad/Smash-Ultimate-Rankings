@@ -7,6 +7,7 @@ import { EMPTY_FILTERS, type Fighter, type FilterState } from "@/lib/types";
 
 import CharacterPanel from "./CharacterPanel";
 import CorrelationTable from "./CorrelationTable";
+import DeltaDistribution from "./DeltaDistribution";
 import DeltaScatter from "./DeltaScatter";
 import DivergingBars from "./DivergingBars";
 import FilterBar from "./FilterBar";
@@ -14,6 +15,7 @@ import FranchiseView from "./FranchiseView";
 import GroupComparison from "./GroupComparison";
 import Slopegraph from "./Slopegraph";
 import StatHeader from "./StatHeader";
+import TierHistogram from "./TierHistogram";
 import { Card } from "./ui";
 
 export default function Dashboard({ fighters }: { fighters: Fighter[] }) {
@@ -75,6 +77,30 @@ export default function Dashboard({ fighters }: { fighters: Fighter[] }) {
                 fighters={filtered}
                 hovered={hovered}
                 selected={selected}
+                onHover={onHover}
+                onSelect={onSelect}
+              />
+            </Card>
+
+            <Card
+              title="Tier distribution"
+              subtitle="How many fighters sit in each band. My list is top heavy or bottom heavy in ways the competitive list is not."
+            >
+              <TierHistogram
+                fighters={filtered}
+                hovered={hovered}
+                onHover={onHover}
+                onSelect={onSelect}
+              />
+            </Card>
+
+            <Card
+              title="Tier delta distribution"
+              subtitle="The same gaps as a continuous shape. Where the roster sits relative to perfect agreement at zero."
+            >
+              <DeltaDistribution
+                fighters={filtered}
+                hovered={hovered}
                 onHover={onHover}
                 onSelect={onSelect}
               />

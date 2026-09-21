@@ -48,6 +48,24 @@ Reproduced by `lib/stats.test.ts`, so a regression in the statistics breaks the 
   characters is weak. The signal lives in `Setup/Trap` and in disjoints, not in the gimmick
   flag.
 
+## Distribution views
+
+Two cards cover the shape of the data.
+
+`Tier distribution` counts fighters per tier band. Bar colour is the mean tier delta for
+that band, so my S+ through B bands read blue and C through F read red, a clean flip. The
+comparison view stacks my 7 bands over the competitive 12 rather than pairing them as
+grouped bars, because the two scales do not correspond and my S is not the competitive S
+minus.
+
+`Tier delta distribution` is the continuous read of the same gaps. A Gaussian kernel density
+estimate with Silverman bandwidth, drawn over binned counts, with shaded bands at 1, 2 and 3
+standard deviations, a rug of every individual fighter, and an optional normal curve for the
+same mean and spread. On the full roster the mean is 0 by construction and the standard
+deviation is 38.86. The middle tracks a normal curve almost exactly at 68.6 percent within 1
+standard deviation against 68.3 expected, but the tails are lighter at 98.8 percent within 2
+against 95.4 expected, because a delta cannot exceed the size of the roster.
+
 ## Statistics
 
 `lib/stats.ts` is pure and unit tested.

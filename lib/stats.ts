@@ -287,3 +287,105 @@ export function formatDelta(d: number): string {
   if (d === 0) return "0";
   return (d > 0 ? "+" : "−") + Math.abs(d);
 }
+
+/* ------------------------------------------------------------------ *
+ * Density
+ * ------------------------------------------------------------------ */
+
+/** Sample standard deviation. Needs at least 2 values. */
+export function stdDev(xs: number[]): number {
+  const n = xs.length;
+  if (n < 2) return 0;
+  const m = mean(xs);
+  let s = 0;
+  for (const x of xs) s += (x - m) * (x - m);
+  return Math.sqrt(s / (n - 1));
+}
+
+/**
+ * Silverman rule of thumb bandwidth. Uses the smaller of the standard
+ * deviation and a robust spread from the interquartile range, so one extreme
+ * value cannot oversmooth the whole curve.
+ */
+export function silvermanBandwidth(xs: number[]): number {
+  const n = xs.length;
+  if (n < 2) return 1;
+  const sorted = xs.slice().sort((a, b) => a - b);
+  const iqr = quantileSorted(sorted, 0.75) - quantileSorted(sorted, 0.25);
+  const spread = iqr > 0 ? Math.min(stdDev(xs), iqr / 1.349) : stdDev(xs);
+  return Math.max(1e-6, 0.9 * spread * Math.pow(n, -1 / 5));
+}
+
+export interface DensityPoint {
+  x: number;
+  y: number;
+}
+
+/**
+ * Gaussian kernel density estimate, sampled on an even grid.
+ *
+ * The curve is the continuous read of a distribution that the binned view can
+ * only approximate. Area under it integrates to 1, so two groups of different
+ * size stay comparable.
+ */
+export function kernelDensity(
+  values: number[],
+  from: number,
+  to: number,
+  steps = 160,
+  bandwidth?: number
+): DensityPoint[] {
+  const n = values.length;
+  const out: DensityPoint[] = [];
+  if (n === 0 || to <= from) return out;
+
+  const h = bandwidth ?? silvermanBandwidth(values);
+  const norm = 1 / (n * h * Math.sqrt(2 * Math.PI));
+
+  for (let i = 0; i <= steps; i++) {
+    const x = from + ((to - from) * i) / steps;
+    let sum = 0;
+    for (const v of values) {
+      const z = (x - v) / h;
+      sum += Math.exp(-0.5 * z * z);
+    }
+    out.push({ x, y: sum * norm });
+  }
+  return out;
+}
+
+/** Normal density at x, for drawing the reference curve. */
+export function normalPdf(x: number, mu: number, sigma: number): number {
+  if (sigma <= 0) return 0;
+  const z = (x - mu) / sigma;
+  return Math.exp(-0.5 * z * z) / (sigma * Math.sqrt(2 * Math.PI));
+}
+
+/** Even-width bins over [from, to]. */
+export function histogram(
+  values: number[],
+  from: number,
+  to: number,
+  binWidth: number
+): { x0: number; x1: number; n: number }[] {
+  const bins: { x0: number; x1: number; n: number }[] = [];
+  for (let x = from; x < to; x += binWidth) {
+    bins.push({ x0: x, x1: Math.min(x + binWidth, to), n: 0 });
+  }
+  for (const v of values) {
+    let i = Math.floor((v - from) / binWidth);
+    if (i < 0) i = 0;
+    if (i >= bins.length) i = bins.length - 1;
+    if (bins[i]) bins[i].n += 1;
+  }
+  return bins;
+}
+
+/** Share of values inside mean plus or minus k standard deviations. */
+export function shareWithin(values: number[], k: number): number {
+  if (values.length === 0) return 0;
+  const m = mean(values);
+  const sd = stdDev(values);
+  if (sd === 0) return 1;
+  return values.filter((v) => Math.abs(v - m) <= k * sd).length / values.length;
+}
