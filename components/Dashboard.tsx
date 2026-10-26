@@ -37,10 +37,10 @@ export default function Dashboard({ fighters }: { fighters: Fighter[] }) {
   return (
     <div className="mx-auto max-w-[1600px] px-4 pb-16 pt-6 sm:px-6">
       <header className="mb-5">
-        <h1 className="text-[22px] font-semibold tracking-tight">
+        <h1 className="text-[24px] font-semibold tracking-tight">
           Comfort vs. Meta
         </h1>
-        <p className="mt-1 max-w-3xl text-[13px] leading-relaxed text-[var(--color-ink-2)]">
+        <p className="mt-1 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-2)]">
           Every Smash Ultimate fighter ranked twice. Once by how well I play them. Once
           by competitive viability. <strong>Tier delta</strong> is the gap.{" "}
           <span style={{ color: "#3987e5" }}>Positive means I rate them above the meta.</span>{" "}
@@ -63,7 +63,7 @@ export default function Dashboard({ fighters }: { fighters: Fighter[] }) {
       </div>
 
       {empty ? (
-        <div className="card p-10 text-center text-[13px] text-[var(--color-ink-muted)]">
+        <div className="card p-10 text-center text-[14px] text-[var(--color-ink-muted)]">
           No fighters match these filters. Reset one to bring the charts back.
         </div>
       ) : (
@@ -109,7 +109,7 @@ export default function Dashboard({ fighters }: { fighters: Fighter[] }) {
             <Card
               title="Rank against rank"
               subtitle="Distance from the dashed line is the tier delta. Marker size scales with absolute delta. Archetype uses both hue and shape."
-              note="Eight hues cannot be told apart when every pair sits side by side, which is what a scatter does. Shape is the channel that separates archetypes here. Split by archetype is the colour-safe read."
+              note="Colour is the gap: blue fighters I rate above the meta, red ones the meta rates above me. Shape is the archetype. Split by archetype gives each one its own panel."
             >
               <DeltaScatter
                 fighters={filtered}

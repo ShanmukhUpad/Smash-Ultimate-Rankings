@@ -1,3 +1,5 @@
+/* next/font/google fails to resolve under Turbopack on this Next version; load the face directly. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -6,15 +8,15 @@
   --color-surface-2: #232321;
   --color-ink: #ffffff;
   --color-ink-2: #c3c2b7;
-  --color-ink-muted: #898781;
+  --color-ink-muted: #96948d;
   --color-grid: #2c2c2a;
   --color-axis: #383835;
-  --color-hairline: rgba(255, 255, 255, 0.1);
+  --color-hairline: #2a2a28;
 
   --color-pos: #3987e5;
   --color-neg: #e66767;
 
-  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
 }
 
 html {
@@ -36,7 +38,7 @@ body {
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-hairline);
-  border-radius: 12px;
+  border-radius: 6px;
 }
 
 /* Recharts paints a focus ring on the svg wrapper; it fights the dark surface. */

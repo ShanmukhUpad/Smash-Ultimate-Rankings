@@ -57,7 +57,7 @@ export default function DivergingBars({
   return (
     <div>
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-4 text-[11.5px] text-[var(--color-ink-muted)]">
+        <div className="flex items-center gap-4 text-[13px] text-[var(--color-ink-muted)]">
           <span className="flex items-center gap-1.5">
             <span
               aria-hidden
@@ -133,7 +133,7 @@ export default function DivergingBars({
 
                   {/* Name sits on the side the bar grows away from, so it never overlaps. */}
                   <span
-                    className={`absolute flex w-[46%] items-center gap-1.5 text-[11.5px] ${
+                    className={`absolute flex w-[46%] items-center gap-1.5 text-[13px] ${
                       pos
                         ? "right-[50.5%] flex-row-reverse text-right"
                         : "left-[50.5%] text-left"
@@ -162,7 +162,7 @@ export default function DivergingBars({
                   />
 
                   <span
-                    className="tnum absolute text-[11px]"
+                    className="tnum absolute text-[12px]"
                     style={{
                       left: pos ? `calc(50% + ${pct}% + 6px)` : undefined,
                       right: pos ? undefined : `calc(50% + ${pct}% + 6px)`,

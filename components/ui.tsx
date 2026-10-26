@@ -45,11 +45,11 @@ export function Card({
     <section className={`card p-5 ${className}`}>
       <header className="mb-4 flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <h2 className="text-[15px] font-semibold tracking-tight text-[var(--color-ink)]">
+          <h2 className="text-[17px] font-semibold tracking-tight text-[var(--color-ink)]">
             {title}
           </h2>
           {subtitle && (
-            <p className="mt-1 max-w-2xl text-[12.5px] leading-snug text-[var(--color-ink-muted)]">
+            <p className="mt-1 max-w-2xl text-[14px] leading-snug text-[var(--color-ink-muted)]">
               {subtitle}
             </p>
           )}
@@ -58,7 +58,7 @@ export function Card({
       </header>
       {children}
       {note && (
-        <p className="mt-3 border-t border-[var(--color-hairline)] pt-3 text-[11.5px] leading-relaxed text-[var(--color-ink-muted)]">
+        <p className="mt-3 border-t border-[var(--color-hairline)] pt-3 text-[13px] leading-relaxed text-[var(--color-ink-muted)]">
           {note}
         </p>
       )}
@@ -85,7 +85,7 @@ export function Chip({
       onClick={onClick}
       title={title}
       aria-pressed={active}
-      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[12px] transition-colors ${
+      className={`inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-[13px] transition-colors ${
         active
           ? "border-transparent bg-[var(--color-ink)] text-[var(--color-plane)]"
           : "border-[var(--color-hairline)] bg-[var(--color-surface-2)] text-[var(--color-ink-2)] hover:border-[var(--color-ink-muted)]"
@@ -119,7 +119,7 @@ export function Segmented<T extends string>({
     <div
       role="group"
       aria-label={ariaLabel}
-      className="inline-flex flex-wrap gap-1 rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface-2)] p-1"
+      className="inline-flex flex-wrap gap-1 rounded-md border border-[var(--color-hairline)] bg-[var(--color-surface-2)] p-1"
     >
       {options.map((o) => (
         <button
@@ -128,7 +128,7 @@ export function Segmented<T extends string>({
           title={o.title}
           onClick={() => onChange(o.value)}
           aria-pressed={value === o.value}
-          className={`rounded-md px-2.5 py-1 text-[12px] transition-colors ${
+          className={`rounded-md px-2.5 py-1 text-[13px] transition-colors ${
             value === o.value
               ? "bg-[var(--color-ink)] text-[var(--color-plane)]"
               : "text-[var(--color-ink-2)] hover:bg-[#2e2e2c]"
@@ -158,7 +158,7 @@ export function TriToggle({
       type="button"
       onClick={onClick}
       title={hint}
-      className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-[12px] transition-colors ${
+      className={`inline-flex items-center gap-2 rounded-md border px-2.5 py-1 text-[13px] transition-colors ${
         state === null
           ? "border-[var(--color-hairline)] bg-[var(--color-surface-2)] text-[var(--color-ink-2)] hover:border-[var(--color-ink-muted)]"
           : "border-transparent bg-[var(--color-ink)] text-[var(--color-plane)]"
@@ -166,7 +166,7 @@ export function TriToggle({
     >
       <span>{label}</span>
       <span
-        className={`rounded px-1 text-[10.5px] uppercase tracking-wide ${
+        className={`rounded px-1 text-[12px] ${
           state === null
             ? "bg-[#2e2e2c] text-[var(--color-ink-muted)]"
             : "bg-[rgba(0,0,0,0.15)]"
@@ -203,7 +203,7 @@ export function Legend({
                 : {})}
               onMouseEnter={() => onHover?.(it.key)}
               onMouseLeave={() => onHover?.(null)}
-              className={`flex items-center gap-1.5 text-[11.5px] transition-opacity ${
+              className={`flex items-center gap-1.5 text-[13px] transition-opacity ${
                 muted ? "opacity-35" : "opacity-100"
               } ${onToggle ? "cursor-pointer hover:opacity-80" : ""}`}
             >
@@ -236,18 +236,18 @@ export function StatTile({
   accent?: string;
 }) {
   return (
-    <div className="card px-4 py-3">
-      <div className="text-[11px] uppercase tracking-wide text-[var(--color-ink-muted)]">
+    <div className="border-t border-[var(--color-hairline)] pt-3">
+      <div className="text-[13px] text-[var(--color-ink-muted)]">
         {label}
       </div>
       <div
-        className="mt-1 text-[26px] font-semibold leading-none"
+        className="tnum mt-1.5 text-[30px] font-semibold leading-none"
         style={{ color: accent ?? INK.primary }}
       >
         {value}
       </div>
       {sub && (
-        <div className="mt-1.5 text-[11.5px] leading-snug text-[var(--color-ink-muted)]">
+        <div className="mt-1.5 text-[13px] leading-snug text-[var(--color-ink-muted)]">
           {sub}
         </div>
       )}
@@ -260,7 +260,7 @@ export function UnderpoweredBadge({ n }: { n: number }) {
   return (
     <span
       title={`n = ${n}. Too few fighters for a stable mean. Statistics suppressed.`}
-      className="rounded border border-[var(--color-hairline)] px-1 text-[10px] uppercase tracking-wide text-[var(--color-ink-muted)]"
+      className="rounded border border-[var(--color-hairline)] px-1 text-[12px] text-[var(--color-ink-muted)]"
     >
       n={n} low
     </span>
@@ -281,7 +281,7 @@ export function Tooltip({
   const flip = x > containerWidth - 200;
   return (
     <div
-      className="pointer-events-none absolute z-30 max-w-[240px] rounded-lg border border-[var(--color-hairline)] bg-[#232321] px-2.5 py-2 text-[11.5px] leading-snug text-[var(--color-ink-2)] shadow-xl"
+      className="pointer-events-none absolute z-30 max-w-[240px] rounded-lg border border-[var(--color-hairline)] bg-[#232321] px-2.5 py-2 text-[13px] leading-snug text-[var(--color-ink-2)] shadow-xl"
       style={{
         left: flip ? undefined : x + 12,
         right: flip ? containerWidth - x + 12 : undefined,

@@ -4,7 +4,6 @@ import { motion, useReducedMotion } from "motion/react";
 import { useMemo, useState } from "react";
 
 import {
-  archetypeColor,
   DELTA_NEGATIVE,
   DELTA_POSITIVE,
   deltaColor,
@@ -19,10 +18,10 @@ import { FighterIcon } from "./ui";
 function Field({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="flex items-baseline justify-between gap-3 border-b border-[var(--color-hairline)] py-1.5 last:border-0">
-      <dt className="text-[11px] uppercase tracking-wide text-[var(--color-ink-muted)]">
+      <dt className="text-[12px] text-[var(--color-ink-muted)]">
         {label}
       </dt>
-      <dd className="text-right text-[12.5px] text-[var(--color-ink-2)]">{value}</dd>
+      <dd className="text-right text-[14px] text-[var(--color-ink-2)]">{value}</dd>
     </div>
   );
 }
@@ -96,10 +95,10 @@ export default function CharacterPanel({
           value={query}
           placeholder="Search all 86 by name, franchise or archetype"
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface-2)] px-3 py-2 text-[13px] text-[var(--color-ink)] placeholder:text-[var(--color-ink-muted)] focus:border-[#3987e5] focus:outline-none"
+          className="w-full rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface-2)] px-3 py-2 text-[14px] text-[var(--color-ink)] placeholder:text-[var(--color-ink-muted)] focus:border-[#3987e5] focus:outline-none"
         />
         {query && (
-          <p className="mt-1.5 text-[11px] text-[var(--color-ink-muted)]">
+          <p className="mt-1.5 text-[12px] text-[var(--color-ink-muted)]">
             Searching the full roster, filters ignored. {results.length} match
             {results.length === 1 ? "" : "es"}.
           </p>
@@ -117,7 +116,7 @@ export default function CharacterPanel({
                 onMouseEnter={() => onHover(f.character)}
                 onMouseLeave={() => onHover(null)}
                 onClick={() => onSelect(isSel ? null : f.character)}
-                className={`flex w-full items-center gap-2 rounded px-2 py-1 text-left text-[12px] transition-colors ${
+                className={`flex w-full items-center gap-2 rounded px-2 py-1 text-left text-[13px] transition-colors ${
                   isSel
                     ? "bg-[var(--color-ink)] text-[var(--color-plane)]"
                     : "text-[var(--color-ink-2)] hover:bg-[#2a2a28]"
@@ -126,17 +125,17 @@ export default function CharacterPanel({
                 <FighterIcon
                   character={f.character}
                   size={20}
-                  ring={archetypeColor(f.archetype)}
+                  ring={deltaColor(f.tierDelta)}
                   dimmed={outsideFilter}
                 />
                 <span className={`flex-1 truncate ${outsideFilter ? "opacity-50" : ""}`}>
                   {f.character}
                   {outsideFilter && (
-                    <span className="ml-1 text-[10px] opacity-70">(filtered out)</span>
+                    <span className="ml-1 text-[12px] opacity-70">(filtered out)</span>
                   )}
                 </span>
                 <span
-                  className="tnum shrink-0 text-[11px]"
+                  className="tnum shrink-0 text-[12px]"
                   style={{
                     color: isSel
                       ? undefined
@@ -152,7 +151,7 @@ export default function CharacterPanel({
           );
         })}
         {results.length === 0 && (
-          <li className="px-2 py-3 text-[12px] text-[var(--color-ink-muted)]">
+          <li className="px-2 py-3 text-[13px] text-[var(--color-ink-muted)]">
             No match.
           </li>
         )}
@@ -171,24 +170,24 @@ export default function CharacterPanel({
               <FighterIcon
                 character={active.character}
                 size={44}
-                ring={archetypeColor(active.archetype)}
+                ring={deltaColor(active.tierDelta)}
               />
               <div className="min-w-0">
-                <h3 className="truncate text-[15px] font-semibold text-[var(--color-ink)]">
+                <h3 className="truncate text-[17px] font-semibold text-[var(--color-ink)]">
                   {active.character}
                 </h3>
-                <p className="text-[11.5px] text-[var(--color-ink-muted)]">
+                <p className="text-[13px] text-[var(--color-ink-muted)]">
                   {active.franchise} · {active.franchiseGenre}
                 </p>
                 {iconFrames(active.character).length > 1 && (
-                  <p className="text-[10.5px] text-[var(--color-ink-muted)] opacity-80">
+                  <p className="text-[12px] text-[var(--color-ink-muted)] opacity-80">
                     showing {iconFrameLabel(active.character, iconTick)}
                   </p>
                 )}
               </div>
             </div>
             <span
-              className="tnum rounded px-2 py-0.5 text-[13px] font-semibold"
+              className="tnum rounded px-2 py-0.5 text-[14px] font-semibold"
               style={{
                 background: deltaColor(active.tierDelta),
                 color: "#0d0d0d",
@@ -225,7 +224,7 @@ export default function CharacterPanel({
                   style={{ top: 13, background: m.colour }}
                 />
                 <motion.span
-                  className="tnum absolute -translate-x-1/2 text-[10px]"
+                  className="tnum absolute -translate-x-1/2 text-[12px]"
                   initial={false}
                   animate={{ left: `${((m.rank - 1) / (maxRank - 1)) * 100}%` }}
                   transition={{ duration: reduce ? 0 : 0.35 }}
@@ -253,7 +252,7 @@ export default function CharacterPanel({
                   <span
                     aria-hidden
                     className="size-2 rounded-full"
-                    style={{ background: archetypeColor(active.archetype) }}
+                    style={{ background: INK.muted }}
                   />
                   {active.archetype}
                 </span>
@@ -274,7 +273,7 @@ export default function CharacterPanel({
           </dl>
 
           {peerMean !== null && (
-            <p className="mt-3 border-t border-[var(--color-hairline)] pt-2 text-[11.5px] leading-relaxed text-[var(--color-ink-muted)]">
+            <p className="mt-3 border-t border-[var(--color-hairline)] pt-2 text-[13px] leading-relaxed text-[var(--color-ink-muted)]">
               {active.archetype} averages{" "}
               <span
                 className="tnum font-semibold"
@@ -293,7 +292,7 @@ export default function CharacterPanel({
           )}
         </motion.div>
       ) : (
-        <p className="rounded-lg border border-dashed border-[var(--color-hairline)] p-4 text-[12px] text-[var(--color-ink-muted)]">
+        <p className="rounded-lg border border-dashed border-[var(--color-hairline)] p-4 text-[13px] text-[var(--color-ink-muted)]">
           Pick a fighter. Or hover any mark in the charts.
         </p>
       )}

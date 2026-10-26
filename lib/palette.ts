@@ -1,12 +1,9 @@
 import type { Archetype, Fighter } from "./types.ts";
 
 /**
- * Dark-mode steps of the validated 8-slot categorical palette.
- * Verified with the data-viz validator against surface #1a1a19:
- *   adjacent pairs -> ALL CHECKS PASS (worst CVD dE 8.4, worst normal dE 19.3).
- *   all pairs      -> FAILS (magenta vs aqua dE 1.6 deutan).
- * Charts that put every archetype on one plane at once (the scatter) therefore
- * carry a second, non-colour channel: a distinct marker shape per archetype.
+ * Archetypes are told apart by marker shape, never by hue: eight categorical
+ * hues could not all be separated (the validator failed magenta vs aqua for
+ * deuteranopes), and colour is reserved for the comfort-vs-meta gap below.
  */
 export const ARCHETYPE_ORDER: Archetype[] = [
   "Rushdown",
@@ -19,17 +16,6 @@ export const ARCHETYPE_ORDER: Archetype[] = [
   "Aerial",
 ];
 
-export const ARCHETYPE_COLOR: Record<Archetype, string> = {
-  Rushdown: "#3987e5", // slot 1 blue
-  Zoner: "#d95926", // slot 2 orange
-  "Setup/Trap": "#199e70", // slot 3 aqua
-  Swordie: "#c98500", // slot 4 yellow
-  "All-rounder": "#d55181", // slot 5 magenta
-  Grappler: "#008300", // slot 6 green
-  "Heavy Bruiser": "#9085e9", // slot 7 violet
-  Aerial: "#e66767", // slot 8 red
-};
-
 /** Recharts symbol types - the redundant channel for the all-pairs scatter. */
 export const ARCHETYPE_SYMBOL: Record<Archetype, string> = {
   Rushdown: "circle",
@@ -39,12 +25,11 @@ export const ARCHETYPE_SYMBOL: Record<Archetype, string> = {
   "All-rounder": "cross",
   Grappler: "star",
   "Heavy Bruiser": "wye",
-  Aerial: "circle",
+  Aerial: "circle", // drawn hollow so it stays apart from Rushdown
 };
 
-export function archetypeColor(a: string): string {
-  return ARCHETYPE_COLOR[a as Archetype] ?? INK.muted;
-}
+/** Aerial shares the circle with Rushdown and is told apart by an open mark. */
+export const HOLLOW_ARCHETYPES: ReadonlySet<Archetype> = new Set<Archetype>(["Aerial"]);
 
 /* ------------------------------------------------------------------ *
  * Diverging scale for tier_delta.
@@ -77,7 +62,7 @@ export const DELTA_NEUTRAL = MIDPOINT;
 export const INK = {
   primary: "#ffffff",
   secondary: "#c3c2b7",
-  muted: "#898781",
+  muted: "#96948d",
   grid: "#2c2c2a",
   axis: "#383835",
   surface: "#1a1a19",

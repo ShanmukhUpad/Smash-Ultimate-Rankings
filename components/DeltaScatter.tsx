@@ -16,10 +16,10 @@ import {
 } from "recharts";
 
 import {
-  ARCHETYPE_COLOR,
   ARCHETYPE_ORDER,
   ARCHETYPE_SYMBOL,
-  archetypeColor,
+  deltaColor,
+  HOLLOW_ARCHETYPES,
   INK,
 } from "@/lib/palette";
 import { iconSrcAt } from "@/lib/icons";
@@ -106,7 +106,9 @@ const FighterMark = memo(function FighterMark(props: {
 
   const f = payload.f;
   const isActive = activeName === f.character;
-  const colour = archetypeColor(f.archetype);
+  // Colour carries the comfort-vs-meta gap; the archetype is the marker shape.
+  const colour = deltaColor(f.tierDelta);
+  const hollow = HOLLOW_ARCHETYPES.has(f.archetype);
   // Recharts hands us an AREA; portraits need a diameter, kept in a band where
   // a 200px stock icon still reads as a face.
   const d = Math.min(38, Math.max(17, Math.sqrt(size / Math.PI) * 2.3));
@@ -154,16 +156,34 @@ const FighterMark = memo(function FighterMark(props: {
           cy={0}
           type={ARCHETYPE_SYMBOL[f.archetype] as never}
           size={isActive ? size * 2.1 : size}
-          fill={colour}
-          fillOpacity={0.85}
-          // 2px surface ring keeps overlapping marks readable.
-          stroke={isActive ? INK.primary : INK.surface}
+          fill={hollow ? INK.surface : colour}
+          fillOpacity={hollow ? 1 : 0.85}
+          // 2px surface ring keeps overlapping marks readable; open marks draw it in their colour.
+          stroke={isActive ? INK.primary : hollow ? colour : INK.surface}
           strokeWidth={2}
         />
       )}
     </motion.g>
   );
 });
+
+/** The archetype's marker, as the legend swatch and the small-multiple label. */
+function ArchetypeGlyph({ archetype }: { archetype: Archetype }) {
+  const hollow = HOLLOW_ARCHETYPES.has(archetype);
+  return (
+    <svg width={13} height={13} aria-hidden>
+      <Symbols
+        cx={6.5}
+        cy={6.5}
+        type={ARCHETYPE_SYMBOL[archetype] as never}
+        size={hollow ? 36 : 48}
+        fill={hollow ? "none" : INK.secondary}
+        stroke={hollow ? INK.secondary : "none"}
+        strokeWidth={1.5}
+      />
+    </svg>
+  );
+}
 
 export default function DeltaScatter({
   fighters,
@@ -397,7 +417,7 @@ export default function DeltaScatter({
           opts.compact
             ? undefined
             : {
-                value: "MY RANK  (1 = most comfortable)  →",
+                value: "My rank (1 = most comfortable)  →",
                 position: "insideBottom",
                 offset: -22,
                 fill: INK.secondary,
@@ -416,7 +436,7 @@ export default function DeltaScatter({
           opts.compact
             ? undefined
             : {
-                value: "COMPETITIVE RANK  (1 = strongest)",
+                value: "Competitive rank (1 = strongest)",
                 angle: -90,
                 position: "insideLeft",
                 offset: 4,
@@ -451,18 +471,8 @@ export default function DeltaScatter({
           items={presentArchetypes.map((a) => ({
             key: a,
             label: a,
-            color: ARCHETYPE_COLOR[a],
-            symbol: (
-              <svg width={13} height={13} aria-hidden>
-                <Symbols
-                  cx={6.5}
-                  cy={6.5}
-                  type={ARCHETYPE_SYMBOL[a] as never}
-                  size={48}
-                  fill={ARCHETYPE_COLOR[a]}
-                />
-              </svg>
-            ),
+            color: INK.secondary,
+            symbol: <ArchetypeGlyph archetype={a} />,
           }))}
           onToggle={(k) => setFocus((cur) => (cur === k ? null : (k as Archetype)))}
           mutedKeys={
@@ -498,7 +508,7 @@ export default function DeltaScatter({
                 value: "facet",
                 label: "Split by archetype",
                 title:
-                  "One panel per archetype. The colour-safe way to read eight categories.",
+                  "One panel per archetype, on the same axes.",
               },
             ]}
           />
@@ -523,7 +533,7 @@ export default function DeltaScatter({
             <QuadrantCaptions />
           </div>
           <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
-            <p className="text-[11.5px] text-[var(--color-ink-muted)]">
+            <p className="text-[13px] text-[var(--color-ink-muted)]">
               Drag to pan. Scroll to zoom.{" "}
               {zoomed && (
                 <span className="tnum">
@@ -536,7 +546,7 @@ export default function DeltaScatter({
               type="button"
               onClick={resetView}
               disabled={!zoomed}
-              className="rounded-full border border-[var(--color-hairline)] px-2.5 py-1 text-[11.5px] text-[var(--color-ink-2)] transition-opacity hover:border-[var(--color-ink-muted)] disabled:opacity-35"
+              className="rounded-md border border-[var(--color-hairline)] px-2.5 py-1 text-[13px] text-[var(--color-ink-2)] transition-opacity hover:border-[var(--color-ink-muted)] disabled:opacity-35"
             >
               Reset view
             </button>
@@ -549,13 +559,9 @@ export default function DeltaScatter({
             return (
               <div key={a} className="rounded-lg border border-[var(--color-hairline)] p-2">
                 <div className="mb-1 flex items-center gap-1.5 px-1">
-                  <span
-                    aria-hidden
-                    className="size-2.5 rounded-sm"
-                    style={{ background: ARCHETYPE_COLOR[a] }}
-                  />
-                  <span className="text-[12px] text-[var(--color-ink-2)]">{a}</span>
-                  <span className="tnum text-[11px] text-[var(--color-ink-muted)]">
+                  <ArchetypeGlyph archetype={a} />
+                  <span className="text-[13px] text-[var(--color-ink-2)]">{a}</span>
+                  <span className="tnum text-[12px] text-[var(--color-ink-muted)]">
                     n={subset.length}
                   </span>
                 </div>
@@ -599,7 +605,7 @@ function QuadrantCaptions() {
   // A translucent plane-coloured backdrop keeps these readable where marks
   // crowd a corner, without hiding the marks underneath.
   const base =
-    "pointer-events-none absolute max-w-[148px] rounded bg-[rgba(13,13,13,0.72)] px-1.5 py-1 text-[10.5px] uppercase leading-tight tracking-wide text-[var(--color-ink-muted)]";
+    "pointer-events-none absolute max-w-[148px] rounded bg-[rgba(13,13,13,0.72)] px-1.5 py-1 text-[12px] leading-tight text-[var(--color-ink-muted)]";
   return (
     <>
       <div className={`${base} left-[70px] top-[14px]`}>

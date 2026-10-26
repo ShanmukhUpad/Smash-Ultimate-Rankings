@@ -122,7 +122,7 @@ export default function DeltaDistribution({
 
   if (fighters.length < 2) {
     return (
-      <p className="text-[12.5px] text-[var(--color-ink-muted)]">
+      <p className="text-[14px] text-[var(--color-ink-muted)]">
         Needs at least two fighters. Loosen a filter.
       </p>
     );
@@ -131,7 +131,7 @@ export default function DeltaDistribution({
   return (
     <div>
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11.5px] text-[var(--color-ink-muted)]">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] text-[var(--color-ink-muted)]">
           <span className="flex items-center gap-1.5">
             <span
               aria-hidden
@@ -159,7 +159,7 @@ export default function DeltaDistribution({
             type="button"
             onClick={() => setShowNormal((v) => !v)}
             aria-pressed={showNormal}
-            className={`rounded-full border px-2.5 py-1 text-[12px] transition-colors ${
+            className={`rounded-md border px-2.5 py-1 text-[13px] transition-colors ${
               showNormal
                 ? "border-transparent bg-[var(--color-ink)] text-[var(--color-plane)]"
                 : "border-[var(--color-hairline)] bg-[var(--color-surface-2)] text-[var(--color-ink-2)] hover:border-[var(--color-ink-muted)]"
@@ -228,7 +228,7 @@ export default function DeltaDistribution({
                   y={MARGIN.top + innerH + 15}
                   textAnchor="middle"
                   className="tnum"
-                  fontSize={10}
+                  fontSize={11.5}
                   fill={INK.muted}
                 >
                   {t > 0 ? `+${t}` : t}
@@ -332,7 +332,7 @@ export default function DeltaDistribution({
                       y={MARGIN.top - 5}
                       textAnchor="middle"
                       className="tnum"
-                      fontSize={9.5}
+                      fontSize={11.5}
                       fill={Math.abs(share - expected) > 2 ? DELTA_NEGATIVE : INK.muted}
                     >
                       {k} sd
@@ -397,7 +397,7 @@ export default function DeltaDistribution({
               x={MARGIN.left + innerW / 2}
               y={HEIGHT - 6}
               textAnchor="middle"
-              fontSize={10.5}
+              fontSize={11.5}
               fill={INK.secondary}
             >
               ← META RATES HIGHER · TIER DELTA · I RATE HIGHER →
@@ -408,7 +408,7 @@ export default function DeltaDistribution({
               y={MARGIN.top + innerH / 2}
               transform={`rotate(-90 ${MARGIN.left - 34} ${MARGIN.top + innerH / 2})`}
               textAnchor="middle"
-              fontSize={10.5}
+              fontSize={11.5}
               fill={INK.muted}
             >
               DENSITY
@@ -423,7 +423,7 @@ export default function DeltaDistribution({
         )}
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1.5 border-t border-[var(--color-hairline)] pt-3 text-[11.5px] text-[var(--color-ink-muted)]">
+      <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1.5 border-t border-[var(--color-hairline)] pt-3 text-[13px] text-[var(--color-ink-muted)]">
         <span className="tnum">
           mean{" "}
           <strong className="text-[var(--color-ink-2)]">
@@ -459,7 +459,7 @@ export default function DeltaDistribution({
           const expected = [68.3, 95.4, 99.7][k - 1];
           const off = Math.abs(share - expected) > 2;
           return (
-            <li key={k} className="tnum text-[11.5px] text-[var(--color-ink-muted)]">
+            <li key={k} className="tnum text-[13px] text-[var(--color-ink-muted)]">
               within {k} sd{" "}
               <strong style={{ color: off ? DELTA_NEGATIVE : "var(--color-ink-2)" }}>
                 {share.toFixed(1)} percent
@@ -470,7 +470,7 @@ export default function DeltaDistribution({
         })}
       </ul>
 
-      <p className="mt-2 text-[11.5px] leading-relaxed text-[var(--color-ink-muted)]">
+      <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-ink-muted)]">
         The curve is a Gaussian kernel density estimate over the same values the bins
         count, so the area under it is 1 and filtered groups of different size stay
         comparable. Shaded bands are 1, 2 and 3 standard deviations from the mean. Ticks

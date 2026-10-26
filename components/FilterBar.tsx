@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useMemo, useState } from "react";
 
 import { activeFilterCount, cycleTri, toggleInList, uniqueSorted } from "@/lib/filters";
-import { ARCHETYPE_COLOR, ARCHETYPE_ORDER } from "@/lib/palette";
+import { ARCHETYPE_ORDER } from "@/lib/palette";
 import { EMPTY_FILTERS, type Fighter, type FilterState } from "@/lib/types";
 import { Chip, TriToggle } from "./ui";
 
@@ -17,7 +17,7 @@ function Group({
 }) {
   return (
     <div className="flex flex-wrap items-center gap-1.5">
-      <span className="mr-0.5 text-[10.5px] uppercase tracking-wide text-[var(--color-ink-muted)]">
+      <span className="mr-0.5 text-[12px] text-[var(--color-ink-muted)]">
         {label}
       </span>
       {children}
@@ -54,13 +54,12 @@ export default function FilterBar({
     setFilters({ ...filters, [k]: v });
 
   return (
-    <div className="card sticky top-[60px] z-20 p-4 backdrop-blur">
+    <div className="card sticky top-[60px] z-20 p-4">
       <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
         <Group label="Archetype">
           {ARCHETYPE_ORDER.map((a) => (
             <Chip
               key={a}
-              color={ARCHETYPE_COLOR[a]}
               active={filters.archetype.includes(a)}
               onClick={() => set("archetype", toggleInList(filters.archetype, a))}
             >
@@ -113,14 +112,14 @@ export default function FilterBar({
         </Group>
 
         <div className="ml-auto flex items-center gap-3">
-          <span className="tnum text-[12px] text-[var(--color-ink-2)]">
+          <span className="tnum text-[13px] text-[var(--color-ink-2)]">
             <span className="font-semibold text-[var(--color-ink)]">{shown}</span> of{" "}
             {all.length} shown
           </span>
           <button
             type="button"
             onClick={() => setExpanded((v) => !v)}
-            className="rounded-full border border-[var(--color-hairline)] px-2.5 py-1 text-[12px] text-[var(--color-ink-2)] hover:border-[var(--color-ink-muted)]"
+            className="rounded-md border border-[var(--color-hairline)] px-2.5 py-1 text-[13px] text-[var(--color-ink-2)] hover:border-[var(--color-ink-muted)]"
           >
             {expanded ? "Fewer filters" : "More filters"}
           </button>
@@ -128,7 +127,7 @@ export default function FilterBar({
             type="button"
             onClick={() => setFilters(EMPTY_FILTERS)}
             disabled={count === 0}
-            className="rounded-full border border-[var(--color-hairline)] px-2.5 py-1 text-[12px] text-[var(--color-ink-2)] transition-opacity hover:border-[var(--color-ink-muted)] disabled:opacity-35"
+            className="rounded-md border border-[var(--color-hairline)] px-2.5 py-1 text-[13px] text-[var(--color-ink-2)] transition-opacity hover:border-[var(--color-ink-muted)] disabled:opacity-35"
           >
             Reset{count > 0 ? ` (${count})` : ""}
           </button>

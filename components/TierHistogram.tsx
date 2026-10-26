@@ -134,7 +134,7 @@ export default function TierHistogram({
               y={panelTop + y(t) + 3.5}
               textAnchor="end"
               className="tnum"
-              fontSize={10}
+              fontSize={11.5}
               fill={INK.muted}
             >
               {t}
@@ -178,7 +178,7 @@ export default function TierHistogram({
                   y={barTop - 4}
                   textAnchor="middle"
                   className="tnum"
-                  fontSize={10.5}
+                  fontSize={11.5}
                   fill={INK.secondary}
                   pointerEvents="none"
                 >
@@ -189,7 +189,7 @@ export default function TierHistogram({
                 x={cx}
                 y={panelTop + innerH + 15}
                 textAnchor="middle"
-                fontSize={10.5}
+                fontSize={11.5}
                 fill={labelColour}
                 pointerEvents="none"
               >
@@ -203,7 +203,7 @@ export default function TierHistogram({
           x={MARGIN.left + innerW / 2}
           y={panelTop + innerH + 29}
           textAnchor="middle"
-          fontSize={10.5}
+          fontSize={11.5}
           fill={INK.muted}
         >
           {caption}
@@ -223,7 +223,7 @@ export default function TierHistogram({
             ]}
           />
         ) : (
-          <p className="flex items-center gap-3 text-[11.5px] text-[var(--color-ink-muted)]">
+          <p className="flex items-center gap-3 text-[13px] text-[var(--color-ink-muted)]">
             <span className="flex items-center gap-1.5">
               <span
                 aria-hidden
@@ -285,7 +285,7 @@ export default function TierHistogram({
                 colourOf={(b) => (b.n === 0 ? "#2c2c2a" : deltaColor(b.meanDelta))}
                 top={MARGIN.top}
                 labelColour={INK.secondary}
-                caption={mode === "mine" ? "MY TIER BAND" : "COMPETITIVE TIER BAND"}
+                caption={mode === "mine" ? "My tier band" : "Competitive tier band"}
               />
             )}
           </svg>
@@ -319,7 +319,7 @@ export default function TierHistogram({
                   <FighterIcon key={m.character} character={m.character} size={18} />
                 ))}
                 {tip.band.n > 14 && (
-                  <span className="tnum text-[10px] text-[var(--color-ink-muted)]">
+                  <span className="tnum text-[12px] text-[var(--color-ink-muted)]">
                     +{tip.band.n - 14}
                   </span>
                 )}
@@ -330,7 +330,7 @@ export default function TierHistogram({
       </div>
 
       {/* A roster-wide read of the shape, without asking anyone to count bars. */}
-      <p className="mt-3 border-t border-[var(--color-hairline)] pt-3 text-[11.5px] leading-relaxed text-[var(--color-ink-muted)]">
+      <p className="mt-3 border-t border-[var(--color-hairline)] pt-3 text-[13px] leading-relaxed text-[var(--color-ink-muted)]">
         My list uses {MY_TIER_ORDER.length} bands. The competitive list uses{" "}
         {OFFICIAL_TIER_ORDER.length}. The two do not line up, so my S is not the competitive
         S minus. Both stacks them over one count axis rather than pairing bands that do not
@@ -348,7 +348,7 @@ export default function TierHistogram({
                 type="button"
                 onClick={() => onSelect(f.character)}
                 onMouseEnter={() => onHover(f.character)}
-                className="flex items-center gap-1.5 rounded px-1 text-[11px] text-[var(--color-ink-2)]"
+                className="flex items-center gap-1.5 rounded px-1 text-[12px] text-[var(--color-ink-2)]"
               >
                 <FighterIcon character={f.character} size={16} />
                 {f.character} sits in {f.myTier} for me and {f.officialTier} for the meta

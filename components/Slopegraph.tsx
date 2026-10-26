@@ -115,13 +115,13 @@ export default function Slopegraph({
             y={16}
             textAnchor="end"
             className="tnum"
-            fontSize={11}
+            fontSize={12}
             fill={INK.secondary}
           >
-            MY RANK
+            My rank
           </text>
-          <text x={xRight} y={16} fontSize={11} fill={INK.secondary}>
-            COMPETITIVE RANK
+          <text x={xRight} y={16} fontSize={12} fill={INK.secondary}>
+            Competitive rank
           </text>
 
           {/* Rank gridlines, recessive. */}
@@ -140,7 +140,7 @@ export default function Slopegraph({
                 y={y(t) + 3.5}
                 textAnchor="end"
                 className="tnum"
-                fontSize={10}
+                fontSize={11.5}
                 fill={INK.muted}
               >
                 {t}
@@ -149,7 +149,7 @@ export default function Slopegraph({
                 x={xRight + 10}
                 y={y(t) + 3.5}
                 className="tnum"
-                fontSize={10}
+                fontSize={11.5}
                 fill={INK.muted}
               >
                 {t}
@@ -263,7 +263,7 @@ export default function Slopegraph({
                         }}
                         initial={false}
                         transition={{ duration: reduce ? 0 : 0.45 }}
-                        fontSize={10.5}
+                        fontSize={11.5}
                         fontWeight={isActive ? 700 : 400}
                         fill={isActive ? INK.primary : INK.secondary}
                       >
@@ -289,7 +289,7 @@ export default function Slopegraph({
                         }}
                         initial={false}
                         transition={{ duration: reduce ? 0 : 0.45 }}
-                        fontSize={10.5}
+                        fontSize={11.5}
                         fontWeight={isActive ? 700 : 400}
                         fill={isActive ? INK.primary : INK.secondary}
                       >

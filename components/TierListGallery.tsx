@@ -44,7 +44,7 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
         <>
           How well I play each fighter, not how strong they are. Rows run S+ down to F.
           Position inside a row gives the ordering that becomes{" "}
-          <code className="rounded bg-[#2e2e2c] px-1 py-0.5 text-[11px]">my_overall_rank</code>{" "}
+          <code className="rounded bg-[#2e2e2c] px-1 py-0.5 text-[12px]">my_overall_rank</code>{" "}
           1 to {fighters.length}. The dashboard treats this as the subjective side. A fighter
           sitting high here means comfort, never a viability claim.
         </>
@@ -59,7 +59,7 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
         <>
           The community competitive ranking. Finer bands than my own list uses, S+ and S−,
           A+ and A and A−, and so on. Flattened in reading order it becomes{" "}
-          <code className="rounded bg-[#2e2e2c] px-1 py-0.5 text-[11px]">
+          <code className="rounded bg-[#2e2e2c] px-1 py-0.5 text-[12px]">
             official_overall_rank
           </code>
           . Every <strong>tier delta</strong> is this rank minus mine. The gap between these
@@ -72,8 +72,8 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
   return (
     <div className="mx-auto max-w-[1600px] px-4 pb-16 pt-6 sm:px-6">
       <header className="mb-6">
-        <h1 className="text-[22px] font-semibold tracking-tight">Source tier lists</h1>
-        <p className="mt-1 max-w-3xl text-[13px] leading-relaxed text-[var(--color-ink-2)]">
+        <h1 className="text-[24px] font-semibold tracking-tight">Source tier lists</h1>
+        <p className="mt-1 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-2)]">
           The two rankings behind every number on the{" "}
           <Link
             href="/"
@@ -88,11 +88,11 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
       {/* Standing reminder of the headline result, so the images are read in context. */}
       <div className="card mb-6 flex flex-wrap items-center gap-x-8 gap-y-3 px-5 py-4">
         <div>
-          <div className="text-[11px] uppercase tracking-wide text-[var(--color-ink-muted)]">
+          <div className="text-[12px] text-[var(--color-ink-muted)]">
             Agreement between them
           </div>
           <div
-            className="tnum mt-0.5 text-[22px] font-semibold leading-none"
+            className="tnum mt-0.5 text-[24px] font-semibold leading-none"
             style={{
               color:
                 summary.rho !== null && summary.rho < 0
@@ -105,12 +105,12 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
         </div>
 
         <div className="min-w-0">
-          <div className="text-[11px] uppercase tracking-wide text-[var(--color-ink-muted)]">
+          <div className="text-[12px] text-[var(--color-ink-muted)]">
             I rate far above the meta
           </div>
           <ul className="mt-1 flex flex-wrap gap-x-3 gap-y-1">
             {summary.top.map((f) => (
-              <li key={f.character} className="flex items-center gap-1.5 text-[12px]">
+              <li key={f.character} className="flex items-center gap-1.5 text-[13px]">
                 <FighterIcon character={f.character} size={18} />
                 <span className="text-[var(--color-ink-2)]">{f.character}</span>
                 <span className="tnum" style={{ color: DELTA_POSITIVE }}>
@@ -122,12 +122,12 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
         </div>
 
         <div className="min-w-0">
-          <div className="text-[11px] uppercase tracking-wide text-[var(--color-ink-muted)]">
+          <div className="text-[12px] text-[var(--color-ink-muted)]">
             The meta rates far above me
           </div>
           <ul className="mt-1 flex flex-wrap gap-x-3 gap-y-1">
             {summary.bottom.map((f) => (
-              <li key={f.character} className="flex items-center gap-1.5 text-[12px]">
+              <li key={f.character} className="flex items-center gap-1.5 text-[13px]">
                 <FighterIcon character={f.character} size={18} />
                 <span className="text-[var(--color-ink-2)]">{f.character}</span>
                 <span className="tnum" style={{ color: DELTA_NEGATIVE }}>
@@ -144,8 +144,8 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
           <figure key={plate.src} className="card overflow-hidden">
             <figcaption className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-[var(--color-hairline)] px-5 py-3.5">
               <div className="min-w-0">
-                <h2 className="text-[15px] font-semibold tracking-tight">{plate.title}</h2>
-                <p className="tnum mt-0.5 text-[11px] text-[var(--color-ink-muted)]">
+                <h2 className="text-[17px] font-semibold tracking-tight">{plate.title}</h2>
+                <p className="tnum mt-0.5 text-[12px] text-[var(--color-ink-muted)]">
                   {plate.columns}
                 </p>
               </div>
@@ -153,7 +153,7 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
                 href={plate.src}
                 target="_blank"
                 rel="noreferrer"
-                className="shrink-0 rounded-full border border-[var(--color-hairline)] px-2.5 py-1 text-[11.5px] text-[var(--color-ink-2)] transition-colors hover:border-[var(--color-ink-muted)]"
+                className="shrink-0 rounded-md border border-[var(--color-hairline)] px-2.5 py-1 text-[13px] text-[var(--color-ink-2)] transition-colors hover:border-[var(--color-ink-muted)]"
               >
                 Open full size ↗
               </a>
@@ -171,7 +171,7 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
               />
             </div>
 
-            <p className="px-5 py-3.5 text-[12.5px] leading-relaxed text-[var(--color-ink-2)]">
+            <p className="px-5 py-3.5 text-[14px] leading-relaxed text-[var(--color-ink-2)]">
               {plate.caption}
             </p>
           </figure>
@@ -179,22 +179,22 @@ export default function TierListGallery({ fighters }: { fighters: Fighter[] }) {
       </div>
 
       <section className="card mt-6 px-5 py-4">
-        <h2 className="text-[13px] font-semibold tracking-tight">
+        <h2 className="text-[14px] font-semibold tracking-tight">
           How my rows split, by count
         </h2>
         <ul className="mt-2.5 flex flex-wrap gap-x-5 gap-y-2">
           {summary.myCounts.map((t) => (
             <li key={t.tier} className="flex items-baseline gap-1.5">
-              <span className="text-[12.5px] font-semibold text-[var(--color-ink)]">
+              <span className="text-[14px] font-semibold text-[var(--color-ink)]">
                 {t.tier}
               </span>
-              <span className="tnum text-[12px] text-[var(--color-ink-muted)]">
+              <span className="tnum text-[13px] text-[var(--color-ink-muted)]">
                 {t.n} fighter{t.n === 1 ? "" : "s"}
               </span>
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-[11.5px] leading-relaxed text-[var(--color-ink-muted)]">
+        <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-ink-muted)]">
           Both images flatten into a strict 1 to {fighters.length} ordering before any
           statistic runs. That is what makes the two lists comparable at all. The bands
           themselves are not comparable, since my list uses seven and the official one twelve.

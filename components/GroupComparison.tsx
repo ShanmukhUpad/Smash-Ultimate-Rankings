@@ -73,7 +73,7 @@ export default function GroupComparison({
           options={FACETS.map((f) => ({ value: f.id, label: f.label, title: f.hint }))}
         />
       </div>
-      <p className="mb-3 text-[12px] leading-snug text-[var(--color-ink-muted)]">
+      <p className="mb-3 text-[13px] leading-snug text-[var(--color-ink-muted)]">
         {facet.hint}
       </p>
 
@@ -105,7 +105,7 @@ export default function GroupComparison({
                   y={height - MARGIN.bottom + 15}
                   textAnchor="middle"
                   className="tnum"
-                  fontSize={10}
+                  fontSize={11.5}
                   fill={INK.muted}
                 >
                   {t > 0 ? `+${t}` : t}
@@ -116,7 +116,7 @@ export default function GroupComparison({
               x={MARGIN.left + innerW / 2}
               y={height - 4}
               textAnchor="middle"
-              fontSize={10.5}
+              fontSize={11.5}
               fill={INK.secondary}
             >
               ← META RATES HIGHER · TIER DELTA · I RATE HIGHER →
@@ -141,7 +141,7 @@ export default function GroupComparison({
                       x={MARGIN.left - 12}
                       y={cy - 4}
                       textAnchor="end"
-                      fontSize={12}
+                      fontSize={13}
                       fontWeight={significant ? 700 : 400}
                       fill={g.underpowered ? INK.muted : INK.primary}
                     >
@@ -152,7 +152,7 @@ export default function GroupComparison({
                       y={cy + 10}
                       textAnchor="end"
                       className="tnum"
-                      fontSize={10}
+                      fontSize={11.5}
                       fill={INK.muted}
                     >
                       {g.underpowered
@@ -281,7 +281,7 @@ export default function GroupComparison({
                       x={MARGIN.left + innerW + 10}
                       y={cy + 4}
                       className="tnum"
-                      fontSize={11.5}
+                      fontSize={12}
                       fontWeight={600}
                       fill={g.underpowered ? INK.muted : INK.primary}
                     >
@@ -301,7 +301,7 @@ export default function GroupComparison({
         )}
       </div>
 
-      <dl className="mt-4 grid grid-cols-1 gap-x-6 gap-y-1.5 border-t border-[var(--color-hairline)] pt-3 text-[11.5px] text-[var(--color-ink-muted)] sm:grid-cols-2">
+      <dl className="mt-4 grid grid-cols-1 gap-x-6 gap-y-1.5 border-t border-[var(--color-hairline)] pt-3 text-[13px] text-[var(--color-ink-muted)] sm:grid-cols-2">
         <div className="flex gap-2">
           <dt className="shrink-0 font-medium text-[var(--color-ink-2)]">Box</dt>
           <dd>Q1 to Q3 with the median. Whisker spans the full range.</dd>

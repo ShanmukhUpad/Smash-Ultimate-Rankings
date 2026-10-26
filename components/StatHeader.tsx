@@ -23,14 +23,14 @@ export default function StatHeader({ fighters }: { fighters: Fighter[] }) {
 
   if (!stats) {
     return (
-      <p className="card p-5 text-[12.5px] text-[var(--color-ink-muted)]">
+      <p className="card p-5 text-[14px] text-[var(--color-ink-muted)]">
         No fighters match the current filters.
       </p>
     );
   }
 
   return (
-    <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 gap-x-8 gap-y-5 lg:grid-cols-4">
       <StatTile
         label={
           <>

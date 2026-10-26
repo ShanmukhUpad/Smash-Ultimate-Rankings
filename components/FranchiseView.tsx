@@ -101,7 +101,7 @@ export default function FranchiseView({
               { value: "gap", label: "Gap" },
             ]}
           />
-          <label className="flex items-center gap-2 text-[11.5px] text-[var(--color-ink-muted)]">
+          <label className="flex items-center gap-2 text-[13px] text-[var(--color-ink-muted)]">
             min n
             <input
               type="range"
@@ -116,7 +116,7 @@ export default function FranchiseView({
         </div>
       </div>
 
-      <p className="mb-3 text-[12px] leading-snug text-[var(--color-ink-muted)]">
+      <p className="mb-3 text-[13px] leading-snug text-[var(--color-ink-muted)]">
         Longer bar means better mean rank. {hiddenCount > 0 && `${hiddenCount} groups hidden below the n threshold.`}
       </p>
 
@@ -138,10 +138,10 @@ export default function FranchiseView({
                 }`}
               >
                 <div className="min-w-0">
-                  <div className="truncate text-[12px] text-[var(--color-ink-2)]">
+                  <div className="truncate text-[13px] text-[var(--color-ink-2)]">
                     {r.key}
                   </div>
-                  <div className="tnum text-[10px] text-[var(--color-ink-muted)]">
+                  <div className="tnum text-[12px] text-[var(--color-ink-muted)]">
                     n={r.n}
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export default function FranchiseView({
                 </div>
 
                 <div
-                  className="tnum text-right text-[11px]"
+                  className="tnum text-right text-[12px]"
                   style={{ color: INK.muted }}
                   title="Mean competitive rank minus mean personal rank"
                 >
@@ -182,7 +182,7 @@ export default function FranchiseView({
                       onMouseEnter={() => onHover(m.character)}
                       onMouseLeave={() => onHover(null)}
                       onClick={() => onSelect(m.character)}
-                      className={`flex items-center gap-1 rounded px-1 text-[10px] transition-colors ${
+                      className={`flex items-center gap-1 rounded px-1 text-[12px] transition-colors ${
                         hovered === m.character
                           ? "bg-[var(--color-ink)] text-[var(--color-plane)]"
                           : "text-[var(--color-ink-muted)] hover:text-[var(--color-ink-2)]"

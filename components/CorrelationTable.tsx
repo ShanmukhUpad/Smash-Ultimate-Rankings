@@ -93,7 +93,7 @@ export default function CorrelationTable({
     <div>
       <div className="mb-4 rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface-2)] p-4">
         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-          <span className="text-[11px] uppercase tracking-wide text-[var(--color-ink-muted)]">
+          <span className="text-[12px] text-[var(--color-ink-muted)]">
             Overall Spearman <span className="normal-case">ρ</span>
           </span>
           <span
@@ -109,13 +109,13 @@ export default function CorrelationTable({
           >
             {formatRho(overall)}
           </span>
-          <span className="text-[12px] text-[var(--color-ink-2)]">
+          <span className="text-[13px] text-[var(--color-ink-2)]">
             n={fighters.length}
             {overallCI &&
               ` · 95% CI ${formatRho(overallCI[0])} to ${formatRho(overallCI[1])}`}
           </span>
         </div>
-        <p className="mt-2 max-w-3xl text-[12.5px] leading-relaxed text-[var(--color-ink-2)]">
+        <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-2)]">
           My ordering. <strong>{readRho(overall)}</strong>.
           {overall !== null && overall < 0 && (
             <>
@@ -139,7 +139,7 @@ export default function CorrelationTable({
 
       <table className="w-full text-left">
         <thead>
-          <tr className="border-b border-[var(--color-hairline)] text-[11px] uppercase tracking-wide text-[var(--color-ink-muted)]">
+          <tr className="border-b border-[var(--color-hairline)] text-[12px] text-[var(--color-ink-muted)]">
             <th className="py-2 pr-3 font-medium">{facet.label}</th>
             <th className="py-2 pr-3 text-right font-medium">n</th>
             <th className="py-2 pr-3 text-right font-medium">
@@ -163,14 +163,14 @@ export default function CorrelationTable({
                   : ""
               }`}
             >
-              <td className="py-2 pr-3 text-[12.5px] text-[var(--color-ink-2)]">
+              <td className="py-2 pr-3 text-[14px] text-[var(--color-ink-2)]">
                 {r.key}
               </td>
-              <td className="tnum py-2 pr-3 text-right text-[12px] text-[var(--color-ink-muted)]">
+              <td className="tnum py-2 pr-3 text-right text-[13px] text-[var(--color-ink-muted)]">
                 {r.n}
               </td>
               <td
-                className="tnum py-2 pr-3 text-right text-[13px] font-semibold"
+                className="tnum py-2 pr-3 text-right text-[14px] font-semibold"
                 style={{
                   color:
                     r.rho === null
@@ -183,7 +183,7 @@ export default function CorrelationTable({
                 {formatRho(r.rho)}
               </td>
               <td className="py-2 pr-3">{bar(r.rho)}</td>
-              <td className="py-2 text-[11.5px] text-[var(--color-ink-muted)]">
+              <td className="py-2 text-[13px] text-[var(--color-ink-muted)]">
                 {r.rho === null
                   ? `Below n=${MIN_GROUP_N}, suppressed`
                   : readRho(r.rho)}
@@ -193,7 +193,7 @@ export default function CorrelationTable({
         </tbody>
       </table>
 
-      <p className="mt-3 border-t border-[var(--color-hairline)] pt-3 text-[11.5px] leading-relaxed text-[var(--color-ink-muted)]">
+      <p className="mt-3 border-t border-[var(--color-hairline)] pt-3 text-[13px] leading-relaxed text-[var(--color-ink-muted)]">
         ρ is computed inside each group. It asks whether I order{" "}
         <em>that group members</em> the way the meta does, apart from whether I rate the
         group as a whole too high or too low. A group can have a large mean delta and a high
